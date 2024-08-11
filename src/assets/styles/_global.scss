@@ -43,6 +43,20 @@ a {
   }
 }
 
+.small-input {
+  box-sizing: border-box;
+  border: 1px solid rgb(108, 172, 114);
+  border-radius: 5px;
+  text-align: center;
+  padding: 2px;
+  width: 40px;
+  height: 28px;
+  color: $green-text-color;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
 .button {
   text-align: center;
   padding: 15px;
@@ -60,6 +74,10 @@ a {
     background: gray;
     cursor: not-allowed;
   }
+}
+
+a.button {
+  display: inline-block;
 }
 
 .mat-mdc-menu-item-text a {

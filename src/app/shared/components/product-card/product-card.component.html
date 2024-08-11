@@ -1,0 +1,58 @@
+<div class="product-card" *ngIf="product">
+  <div class="product-card-favorite">
+    <!--    <span>-->
+    <!--      <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+    <!--        <defs/>-->
+    <!--        <rect id="heart" width="23.000000" height="23.000000" transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/>-->
+    <!--        <path id="Vector" d="M11.21 20.72C11.44 20.8 11.71 20.84 12 20.84C12.28 20.84 12.55 20.8 12.78 20.72C16.29 19.52 21.85 15.27 21.85 8.96C21.85 5.76 19.25 3.15 16.06 3.15C14.52 3.15 13.07 3.75 12 4.84C10.92 3.75 9.47 3.15 7.92 3.15C4.73 3.15 2.14 5.75 2.14 8.96C2.14 15.26 7.7 19.52 11.21 20.72Z" fill="#B6D5B9" fill-opacity="1.000000" fill-rule="evenodd"/>-->
+    <!--      </svg>-->
+    <!--    </span>-->
+    <span>
+      <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs/>
+        <rect id="heart" width="23.000000" height="23.000000" transform="translate(0.500000 0.500000)"
+              fill="#FFFFFF" fill-opacity="0"/>
+        <path id="Vector"
+              d="M12 20.84C11.71 20.84 11.44 20.8 11.21 20.72C7.7 19.52 2.14 15.26 2.14 8.96C2.14 5.75 4.73 3.15 7.92 3.15C9.47 3.15 10.92 3.75 12 4.84C13.07 3.75 14.52 3.15 16.06 3.15C19.25 3.15 21.85 5.76 21.85 8.96C21.85 15.27 16.29 19.52 12.78 20.72C12.55 20.8 12.28 20.84 12 20.84ZM7.92 4.52C5.5 4.52 3.52 6.51 3.52 8.96C3.52 15.22 9.54 18.71 11.66 19.43C11.82 19.48 12.18 19.48 12.34 19.43C14.45 18.71 20.48 15.23 20.48 8.96C20.48 6.51 18.5 4.52 16.07 4.52C14.68 4.52 13.39 5.18 12.55 6.3C12.3 6.65 11.71 6.65 11.45 6.3C10.6 5.17 9.32 4.52 7.92 4.52Z"
+              fill="#383838" fill-opacity="1.000000" fill-rule="nonzero"/>
+        <g opacity="0.000000"/>
+      </svg>
+    </span>
+  </div>
+  <div class="product-card-image" style="background-image: url({{serverStaticPath + product.image}})"></div>
+  <div class="product-card-name">{{ product.name }}</div>
+  <div class="product-card-info">
+    <div class="product-card-price">{{ product.price }} BYN</div>
+    <div class="product-card-action">
+      <button class="button">В корзину</button>
+    </div>
+  </div>
+  <div class="product-card-extra">
+    <div class="product-card-count">
+      <div>
+        <svg width="9.140625" height="3.000000" viewBox="0 0 9.14062 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs/>
+          <path id="-" d="M9.14 3L9.14 0L0 0L0 3L9.14 3Z" fill="#9AA89B" fill-opacity="1.000000" fill-rule="nonzero"/>
+        </svg>
+      </div>
+      <input type="text" class="small-input" [(ngModel)]="count">
+      <div>
+        <svg width="12.000000" height="12.000000" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs/>
+          <path id="+"
+                d="M7.2 12L7.2 7.2L12 7.2L12 4.81L7.2 4.81L7.2 0L4.81 0L4.81 4.81L0 4.81L0 7.2L4.81 7.2L4.81 12L7.2 12Z"
+                fill="#9AA89B" fill-opacity="1.000000" fill-rule="nonzero"/>
+        </svg>
+      </div>
+    </div>
+    <a [routerLink]="'/product/' + product.url" class="product-card-detail">
+      <svg width="17.333008" height="4.000000" viewBox="0 0 17.333 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs/>
+        <circle id="Ellipse 2" cx="2.000000" cy="2.000000" r="2.000000" fill="#9AA89B" fill-opacity="1.000000"/>
+        <circle id="Ellipse 3" cx="8.666016" cy="2.000000" r="2.000000" fill="#9AA89B" fill-opacity="1.000000"/>
+        <circle id="Ellipse 4" cx="15.333008" cy="2.000000" r="2.000000" fill="#9AA89B" fill-opacity="1.000000"/>
+      </svg>
+      <span>Подробнее</span>
+    </a>
+  </div>
+</div>

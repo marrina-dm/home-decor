@@ -1,16 +1,18 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LayoutComponent } from './shared/layout/layout.component';
-import { HeaderComponent } from './shared/layout/header/header.component';
-import { FooterComponent } from './shared/layout/footer/footer.component';
-import { MainComponent } from './views/main/main.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {LayoutComponent} from './shared/layout/layout.component';
+import {HeaderComponent} from './shared/layout/header/header.component';
+import {FooterComponent} from './shared/layout/footer/footer.component';
+import {MainComponent} from './views/main/main.component';
 import {HttpClientModule} from "@angular/common/http";
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatMenuModule} from "@angular/material/menu";
+import {SharedModule} from "./shared/shared.module";
+import {CarouselModule} from "ngx-owl-carousel-o";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {MatMenuModule} from "@angular/material/menu";
     HttpClientModule,
     MatSnackBarModule,
     MatMenuModule,
-    AppRoutingModule
+    CarouselModule,
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [
     provideAnimationsAsync(),
@@ -33,4 +37,5 @@ import {MatMenuModule} from "@angular/material/menu";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
