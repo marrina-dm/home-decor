@@ -37,6 +37,7 @@ a {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 400;
+  outline: none;
 
   &::placeholder {
     color: rgb(168, 171, 167);
@@ -55,6 +56,17 @@ a {
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 .button {
