@@ -43,9 +43,12 @@
       }
 
       .catalog-sorting {
+        width: 171px;
+        min-width: 171px;
         box-sizing: border-box;
         position: relative;
         font-size: 16px;
+        cursor: pointer;
 
         .catalog-sorting-head {
           display: flex;
@@ -86,12 +89,17 @@
 
         &.open {
           width: 257px;
+          min-width: 257px;
 
           .catalog-sorting-head {
             color: rgb(0, 0, 0);
             border-radius: 5px 5px 0 0;
             background: rgb(235, 235, 235);
             padding-right: 23px;
+
+            svg {
+              transform: rotate(180deg);
+            }
           }
 
           .catalog-sorting-body {
@@ -116,6 +124,11 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 26px 30px;
       }
+
+      .empty-products {
+        font-size: 28px;
+        color: $gray-text-color;
+      }
     }
 
     .pagination {
@@ -132,6 +145,7 @@
 
         &.disabled {
           opacity: 0.5;
+          cursor: not-allowed;
         }
       }
 

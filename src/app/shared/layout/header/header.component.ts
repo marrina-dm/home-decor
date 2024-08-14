@@ -1,10 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CategoryType} from "../../../../types/category.type";
 import {AuthService} from "../../../core/auth/auth.service";
-import {DefaultResponseType} from "../../../../types/default-response.type";
-import {HttpErrorResponse} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import {CategoryWithTypeType} from "../../../../types/category-with-type.type";
 
 @Component({
   selector: 'app-header',
@@ -13,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
   public isLogged: boolean;
-  @Input() categories: CategoryType[] = [];
+  @Input() categories: CategoryWithTypeType[] = [];
 
   constructor(private authService: AuthService,
               private _snackBar: MatSnackBar,
