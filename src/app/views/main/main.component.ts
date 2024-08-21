@@ -100,7 +100,7 @@ export class MainComponent implements OnInit {
   constructor(private productService: ProductService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.productService.getBestProducts()
       .subscribe((data: ProductType[]) => {
         this.products = data;

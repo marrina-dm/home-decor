@@ -74,7 +74,7 @@
               <g opacity="0.000000"/>
             </svg>
           </a>
-          <a>
+          <a routerLink="/cart">
             <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
               <defs/>
@@ -100,7 +100,7 @@
                     fill="#202B21" fill-opacity="1.000000" fill-rule="nonzero"/>
               <g opacity="0.000000"/>
             </svg>
-            <span>4</span>
+            <span *ngIf="count">{{ count }}</span>
           </a>
         </div>
       </div>

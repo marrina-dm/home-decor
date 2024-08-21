@@ -1,5 +1,6 @@
-<div class="product-card" *ngIf="product">
-  <div class="product-card-favorite">
+<div class="product-card" *ngIf="product" [routerLink]="isLight ? ['/product/' + product.url] : []"
+     [class.is-light]="isLight">
+  <div class="product-card-favorite" *ngIf="!isLight">
     <!--    <span>-->
     <!--      <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
     <!--        <defs/>-->
@@ -21,14 +22,18 @@
   </div>
   <div class="product-card-image" style="background-image: url({{serverStaticPath + product.image}})"></div>
   <div class="product-card-name">{{ product.name }}</div>
-  <div class="product-card-info">
+  <div class="product-card-info" *ngIf="!isLight">
     <div class="product-card-price">{{ product.price }} BYN</div>
     <div class="product-card-action">
-      <button class="button">В корзину</button>
+      <button class="button" (click)="addToCart()" *ngIf="!countInCart">В корзину</button>
+      <button class="button button-transparent button-in-cart" *ngIf="countInCart" (click)="removeFromCart()">
+        <span>В корзине</span>
+        <span>Удалить</span>
+      </button>
     </div>
   </div>
-  <div class="product-card-extra">
-    <count-selector></count-selector>
+  <div class="product-card-extra" *ngIf="!isLight">
+    <count-selector [iconColor]="'dark'" [count]="count" (onCountChange)="updateCount($event)"></count-selector>
     <a [routerLink]="'/product/' + product.url" class="product-card-detail">
       <svg width="17.333008" height="4.000000" viewBox="0 0 17.333 4" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs/>
