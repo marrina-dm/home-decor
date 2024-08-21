@@ -46,6 +46,7 @@
 
     .product-card-action .button {
       width: 166px;
+      font-size: 16px;
     }
   }
 
@@ -54,20 +55,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    .product-card-count {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 97px;
-
-      div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-      }
-    }
 
     .product-card-detail {
       display: flex;

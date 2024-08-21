@@ -6,3 +6,10 @@
   font-weight: 400;
   color: $green-text-color;
 }
+
+@mixin head-lora-36 {
+  font-family: 'Lora', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+}
