@@ -1,14 +1,17 @@
-<div class="product-card" *ngIf="product" [routerLink]="isLight ? ['/product/' + product.url] : []"
+<div class="product-card" *ngIf="product" (click)="navigate()"
      [class.is-light]="isLight">
-  <div class="product-card-favorite" *ngIf="!isLight">
-    <!--    <span>-->
-    <!--      <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-    <!--        <defs/>-->
-    <!--        <rect id="heart" width="23.000000" height="23.000000" transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/>-->
-    <!--        <path id="Vector" d="M11.21 20.72C11.44 20.8 11.71 20.84 12 20.84C12.28 20.84 12.55 20.8 12.78 20.72C16.29 19.52 21.85 15.27 21.85 8.96C21.85 5.76 19.25 3.15 16.06 3.15C14.52 3.15 13.07 3.75 12 4.84C10.92 3.75 9.47 3.15 7.92 3.15C4.73 3.15 2.14 5.75 2.14 8.96C2.14 15.26 7.7 19.52 11.21 20.72Z" fill="#B6D5B9" fill-opacity="1.000000" fill-rule="evenodd"/>-->
-    <!--      </svg>-->
-    <!--    </span>-->
-    <span>
+  <div class="product-card-favorite" *ngIf="!isLight" (click)="updateFavorite()">
+    <span *ngIf="product.isInFavorite">
+      <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs/>
+        <rect id="heart" width="23.000000" height="23.000000" transform="translate(0.500000 0.500000)"
+              fill="#FFFFFF" fill-opacity="0"/>
+        <path id="Vector"
+              d="M11.21 20.72C11.44 20.8 11.71 20.84 12 20.84C12.28 20.84 12.55 20.8 12.78 20.72C16.29 19.52 21.85 15.27 21.85 8.96C21.85 5.76 19.25 3.15 16.06 3.15C14.52 3.15 13.07 3.75 12 4.84C10.92 3.75 9.47 3.15 7.92 3.15C4.73 3.15 2.14 5.75 2.14 8.96C2.14 15.26 7.7 19.52 11.21 20.72Z"
+              fill="#B6D5B9" fill-opacity="1.000000" fill-rule="evenodd"/>
+      </svg>
+    </span>
+    <span *ngIf="!product.isInFavorite">
       <svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs/>
         <rect id="heart" width="23.000000" height="23.000000" transform="translate(0.500000 0.500000)"

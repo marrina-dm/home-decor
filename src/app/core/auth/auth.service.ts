@@ -71,6 +71,16 @@ export class AuthService {
     }
   }
 
+  refresh(): Observable<DefaultResponseType | LoginResponseType> {
+    const tokens = this.getTokens();
+    if (tokens && tokens.refreshToken) {
+      return this.http.post<DefaultResponseType | LoginResponseType>(environment.api + 'refresh', {
+        refreshToken: tokens.refreshToken
+      });
+    }
+    throw throwError(() => 'Can not use token');
+  }
+
   get userId(): null | string {
     return localStorage.getItem(this.userIdKey);
   }

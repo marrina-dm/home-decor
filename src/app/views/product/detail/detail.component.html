@@ -126,15 +126,19 @@
           </div>
         </div>
         <div class="detail-info-actions">
-          <button class="button button-transparent button-icon">
-            <svg width="16.000000" height="14.362793" viewBox="0 0 16 14.3628" fill="none"
+          <button class="button button-transparent button-icon" (click)="updateFavorite()">
+            <svg *ngIf="!product.isInFavorite" width="16.000000" height="14.362793" viewBox="0 0 16 14.3628" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
               <defs/>
               <path id="Vector"
                     d="M8 14.36C7.76 14.36 7.54 14.33 7.36 14.26C4.51 13.29 0 9.83 0 4.71C0 2.11 2.1 0 4.69 0C5.95 0 7.12 0.49 8 1.36C8.87 0.49 10.04 0 11.3 0C13.89 0 16 2.12 16 4.71C16 9.83 11.48 13.29 8.63 14.26C8.45 14.33 8.23 14.36 8 14.36ZM4.69 1.11C2.72 1.11 1.11 2.73 1.11 4.71C1.11 9.8 6 12.62 7.72 13.21C7.85 13.26 8.14 13.26 8.28 13.21C9.99 12.62 14.89 9.8 14.89 4.71C14.89 2.73 13.28 1.11 11.31 1.11C10.18 1.11 9.13 1.64 8.45 2.56C8.24 2.84 7.76 2.84 7.56 2.56C6.86 1.63 5.82 1.11 4.69 1.11Z"
                     fill="#6CAC72" fill-opacity="1.000000" fill-rule="nonzero"/>
             </svg>
-            <span>В избранное</span>
+            <svg *ngIf="product.isInFavorite" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 14.3628C7.7693 14.3628 7.54605 14.333 7.36 14.266C4.51721 13.2912 0 9.8307 0 4.71814C0 2.11349 2.10605 0 4.69581 0C5.95349 0 7.1293 0.491163 8 1.3693C8.8707 0.491163 10.0465 0 11.3042 0C13.894 0 16 2.12093 16 4.71814C16 9.83814 11.4828 13.2912 8.64 14.266C8.45395 14.333 8.2307 14.3628 8 14.3628Z" fill="#6CAC72"/>
+            </svg>
+            <span *ngIf="!product.isInFavorite">В избранное</span>
+            <span *ngIf="product.isInFavorite">В избранном</span>
           </button>
           <button class="button" (click)="addToCart()" *ngIf="!product.countInCart">В корзину</button>
           <button class="button button-transparent button-in-cart" *ngIf="product.countInCart" (click)="removeFromCart()">
