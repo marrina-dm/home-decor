@@ -1,0 +1,96 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+@import "../../../../assets/styles/personal";
+
+.orders {
+  padding: 56px 0 156px 0;
+
+  .container {
+    font-size: 16px;
+
+    .orders-title {
+      color: $gray-text-color;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .orders-title-additional {
+      color: $gray-text-color;
+      margin-bottom: 67px;
+    }
+
+    .orders-empty {
+      margin: 20px 0 100px 0;
+
+      div {
+        font-size: 16px;
+      }
+
+      .button {
+        width: 255px;
+        margin-top: 10px;
+      }
+    }
+
+    .orders-list {
+      .orders-list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 1px solid rgb(231, 241, 232);
+        padding-bottom: 46px;
+        margin-bottom: 47px;
+
+        &:last-child {
+          border-bottom: 0;
+          padding-bottom: 0;
+          margin-bottom: 0;
+        }
+
+        .orders-list-item-number {
+          color: rgb(17, 17, 17);
+          font-size: 20px;
+          text-decoration-line: underline;
+          width: 297px;
+          margin-right: 20px;
+        }
+
+        .orders-list-item-products {
+          margin-right: 20px;
+          width: 509px;
+          color: rgb(173, 173, 173);
+
+          .orders-list-item-products-count {
+            margin-bottom: 12px;
+          }
+
+          .orders-list-item-product-list {
+            td:first-child {
+              padding-left: 10px;
+              padding-right: 20px;
+            }
+          }
+        }
+
+        .orders-list-item-status {
+          box-sizing: border-box;
+          border: 1px solid rgb(69, 111, 73);
+          border-radius: 50px;
+          padding: 8px 24px;
+          text-align: center;
+          background: transparent;
+          color: rgb(69, 111, 73);
+        }
+
+        .orders-list-item-price {
+          color: $gray-text-color;
+          font-size: 22px;
+          font-weight: 600;
+          margin-left: 20px;
+          width: 186px;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
