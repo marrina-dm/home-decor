@@ -64,8 +64,18 @@
           margin-right: 193px;
         }
 
-        .favorite-product-action .button {
-          width: 160px;
+        .favorite-product-action {
+          position: relative;
+
+          .detail-info-params-count {
+            position: absolute;
+            right: 180px;
+            top: calc(50% - 14px);
+          }
+
+          .button {
+            width: 160px;
+          }
         }
 
         .favorite-product-remove {

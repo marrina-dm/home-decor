@@ -126,7 +126,7 @@
           </div>
         </div>
         <div class="detail-info-actions">
-          <button class="button button-transparent button-icon" (click)="updateFavorite()">
+          <button class="button button-transparent button-icon" *ngIf="isLogged" (click)="updateFavorite()">
             <svg *ngIf="!product.isInFavorite" width="16.000000" height="14.362793" viewBox="0 0 16 14.3628" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
               <defs/>

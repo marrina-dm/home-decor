@@ -22,6 +22,7 @@ export class DetailComponent implements OnInit {
   public product!: ProductType;
   public serverStaticPath: string = environment.serverStaticPath;
   public count: number = 1;
+  public isLogged: boolean;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -55,9 +56,14 @@ export class DetailComponent implements OnInit {
               private favoriteService: FavoriteService,
               private authService: AuthService,
               private _snackBar: MatSnackBar) {
+    this.isLogged = this.authService.getIsLoggedIn();
   }
 
   ngOnInit(): void {
+    this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
+      this.isLogged = isLoggedIn;
+    });
+
     this.activatedRoute.params.subscribe(params => {
       this.productService.getProduct(params['url'])
         .subscribe((data: ProductType) => {

@@ -202,7 +202,7 @@ a.button {
   border-radius: 100%;
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
-  background:  rgb(42, 89, 46);
+  background: rgb(42, 89, 46);
 }
 
 [type="radio"]:not(:checked) + label:after {
@@ -215,4 +215,8 @@ a.button {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
+}
+
+.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle, .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: #648F64 !important;
 }

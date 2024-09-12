@@ -21,20 +21,26 @@ export class ProductCardComponent implements OnInit {
   @Input() countInCart: number | undefined = 0;
   serverStaticPath: string = environment.serverStaticPath;
   public count: number = 1;
+  public isLogged: boolean;
 
   constructor(private cartService: CartService,
               private favoriteService: FavoriteService,
               private authService: AuthService,
               private _snackBar: MatSnackBar,
               private router: Router) {
+    this.isLogged = this.authService.getIsLoggedIn();
   }
 
   ngOnInit(): void {
+    this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
+      this.isLogged = isLoggedIn;
+    });
+
     if (this.countInCart && this.countInCart > 1) {
       this.count = this.countInCart;
     }
 
-    if (this.authService.getIsLoggedIn()) {
+    if (this.isLogged) {
       this.favoriteService.getFavorites().subscribe((data: FavoriteType[] | DefaultResponseType) => {
         if ((data as DefaultResponseType).error !== undefined) {
           const error = (data as DefaultResponseType).message;

@@ -6,6 +6,8 @@ import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {CategoryFilterComponent} from './components/category-filter/category-filter.component';
 import {CountSelectorComponent} from './components/count-selector/count-selector.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import {MatProgressSpinner} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -13,18 +15,21 @@ import {CountSelectorComponent} from './components/count-selector/count-selector
     PasswordRepeatDirective,
     ProductCardComponent,
     CategoryFilterComponent,
-    CountSelectorComponent
+    CountSelectorComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinner
   ],
   exports: [
     PasswordRepeatDirective,
     ProductCardComponent,
     CategoryFilterComponent,
-    CountSelectorComponent
+    CountSelectorComponent,
+    LoaderComponent
   ]
 })
 export class SharedModule {
