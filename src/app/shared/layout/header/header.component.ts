@@ -4,14 +4,12 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 import {CategoryWithTypeType} from "../../../../types/category-with-type.type";
 import {CartService} from "../../services/cart.service";
-import {CartType} from "../../../../types/cart.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 import {ProductService} from "../../services/product.service";
 import {ProductType} from "../../../../types/product.type";
 import {environment} from "../../../../environments/environment";
 import {FormControl} from "@angular/forms";
 import {debounceTime} from "rxjs";
-import {LoaderService} from "../../services/loader.service";
 
 @Component({
   selector: 'app-header',
@@ -86,21 +84,8 @@ export class HeaderComponent implements OnInit {
     this.authService.userId = null;
     this._snackBar.open('Вы вышли из системы');
     this.router.navigate(['/']).then();
+    this.cartService.setCount(0);
   }
-
-  // changedSearchValue(newValue: string) {
-  //   this.searchValue = newValue;
-  //
-  //   if (this.searchValue && this.searchValue.length > 2) {
-  //     this.productService.searchProducts(this.searchValue)
-  //       .subscribe((data: ProductType[]) => {
-  //         this.products = data;
-  //         this.showedSearch = true;
-  //       });
-  //   } else {
-  //     this.products = [];
-  //   }
-  // }
 
   selectProduct(url: string) {
     this.router.navigate(['/product/' + url]).then();

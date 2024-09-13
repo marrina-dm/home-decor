@@ -6,6 +6,7 @@ import {DefaultResponseType} from "../../../../types/default-response.type";
 import {LoginResponseType} from "../../../../types/login-response.type";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import {CartService} from "../../../shared/services/cart.service";
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
+              private cartService: CartService,
               private _snackBar: MatSnackBar,
               private router: Router) {
   }
@@ -47,6 +49,13 @@ export class LoginComponent {
 
             this.authService.setTokens(loginResponse.accessToken, loginResponse.refreshToken);
             this.authService.userId = loginResponse.userId;
+            this.cartService.getCartCount()
+              .subscribe((data: { count: number } | DefaultResponseType) => {
+                if ((data as DefaultResponseType).error !== undefined) {
+                  throw new Error((data as DefaultResponseType).message);
+                }
+              });
+
             this._snackBar.open('Вы успешно авторизовались');
             this.router.navigate(['/']).then();
           },
